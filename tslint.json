@@ -1,0 +1,19 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules"
+    ]
+  },
+  "rules": {
+    "semicolon": true,
+    "no-console": false,
+    "trailing-comma": false,
+    "object-literal-sort-keys": false,
+    "interface-name": false,
+    "no-string-literal": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "api": {
+    "path": "/api"
+  },
+  "database": {
+    "path": {
+      "production": "mongodb://localhost:27017/",
+      "development": "mongodb://localhost:27017/",
+      "test": "mongodb://localhost:27017/"
+    },
+    "name": {
+      "production": "prod_travel",
+      "development": "dev_travel",
+      "test": "test_travel"
+    },
+    "options": {
+      "useNewUrlParser": true,
+      "useCreateIndex": true,
+      "useUnifiedTopology": true,
+      "useFindAndModify": false
+    }
+  },
+  "server": {
+    "port": "8080"
+  },
+  "cache": {
+    "ttl": 6000
+  }
+}

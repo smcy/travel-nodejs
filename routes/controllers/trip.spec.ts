@@ -48,7 +48,7 @@ describe("Trip controller tests: ", () => {
 
     it("It should set new trips data with related id and it returns status 200.", (done: Mocha.Done) => {
         chai.request(app)
-            .put(apiPath + "/" + testData4.id)
+            .patch(apiPath + "/" + testData4.id)
             .send({...testData4, distance: 1.6})
             .end((err: Error, res: ChaiHttp.Response) => {
                 expect(res.status).to.equal(status.OK);

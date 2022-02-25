@@ -111,12 +111,6 @@ The configurations can be changed by editing config.json file.
       "production": "prod_travel",
       "development": "dev_travel",
       "test": "test_travel"
-    },
-    "options": {
-      "useNewUrlParser": true,
-      "useCreateIndex": true,
-      "useUnifiedTopology": true,
-      "useFindAndModify": false
     }
   },
   "server": {

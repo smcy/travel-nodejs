@@ -37,7 +37,7 @@ router.post("/", (req: express.Request, res: express.Response) => {
 router.get("/", (req: express.Request, res: express.Response) => {
     const id = req.query.id;
 
-    if (id) {
+    if (id && typeof id === "string") {
         return tripCache.get("trip_" + id, () => TripModel.get(id))
             .then((trip: TripDTO) => {
                 if (trip) {
@@ -51,7 +51,7 @@ router.get("/", (req: express.Request, res: express.Response) => {
     return res.sendStatus(status.BAD_REQUEST);
 });
 
-router.put("/:id", (req: express.Request, res: express.Response) => {
+router.patch("/:id", (req: express.Request, res: express.Response) => {
     const newTrip = req.body;
     const id: string = req.params.id;
 
@@ -82,10 +82,11 @@ router.get("/all", (req: express.Request, res: express.Response) => {
 });
 
 router.get("/nearby", (req: express.Request, res: express.Response) => {
-    const location = req.query.location;
-    const radius = parseFloat(req.query.radius) || 1;
-    const startDate = req.query.startDate;
-    const endDate = req.query.endDate;
+    const query = req.query as { [key: string]: string }
+    const location = query.location;
+    const radius = parseFloat(query.radius) || 1;
+    const startDate = query.startDate;
+    const endDate = query.endDate;
 
     if (location) {
         const locationComponents: string[] = location.split(",");

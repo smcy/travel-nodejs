@@ -8,6 +8,6 @@ import mongoose from "mongoose";
 import {database} from "../config/app.json";
 
 const dbName: string = database.name[process.env.mode];
-mongoose.connect(database.path[process.env.mode] + dbName, database.options);
+mongoose.connect(database.path[process.env.mode] + dbName);
 
 export default mongoose;

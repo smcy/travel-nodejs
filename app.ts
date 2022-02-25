@@ -26,11 +26,11 @@ if (process.env.mode === "development") {
     app.use(errorLogger);
 }
 
-app.listen(port, (err) => {
-    if (err) {
+app.listen(port, () => {
+        console.log("Server is running on " + port);
+    })
+    .on('error', (err) => {
         console.error("Error", err);
-    }
-    console.log("Server is running on " + port);
-});
+    });
 
 export default app;
